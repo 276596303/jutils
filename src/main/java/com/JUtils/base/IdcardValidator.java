@@ -1,4 +1,4 @@
-package com.JUtils.base;
+package main.java.com.JUtils.base;
 
 import java.util.regex.Pattern;
 
@@ -41,7 +41,7 @@ public class IdcardValidator {
 
 	/**
 	 * 
-	 <p>
+	 * <p>
 	 * 判断18位身份证的合法性
 	 * </p>
 	 * 根据〖中华人民共和国国家标准GB11643-1999〗中有关公民身份号码的规定，公民身份号码是特征组合码，由十七位数字本体码和一位数字校验码组成。
@@ -75,7 +75,7 @@ public class IdcardValidator {
 	 * @date : 2016年6月1日 下午12:31:10
 	 *
 	 * @param idcard
-	 * 					待验证的身份证
+	 *            待验证的身份证
 	 * @return
 	 */
 	public static boolean isValidate18Idcard(String idcard) {
@@ -111,7 +111,7 @@ public class IdcardValidator {
 				return false;
 			}
 		}
-		
+
 		return true;
 	}
 
@@ -122,11 +122,12 @@ public class IdcardValidator {
 	 * @date : 2016年6月1日 下午12:31:49
 	 *
 	 * @param idcard
-	 * 					待验证的身份证
+	 *            待验证的身份证
 	 * @return
 	 */
 	public static boolean is18Idcard(String idcard) {
-		return Pattern.matches("^[1-9]\\d{5}[1-9]\\d{3}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d{3}([\\d|x|X]{1})$", idcard);
+		return Pattern.matches("^[1-9]\\d{5}[1-9]\\d{3}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d{3}([\\d|x|X]{1})$",
+				idcard);
 	}
 
 	/**
@@ -164,7 +165,7 @@ public class IdcardValidator {
 				}
 			}
 		}
-		
+
 		return sum;
 	}
 
@@ -235,20 +236,20 @@ public class IdcardValidator {
 		}
 		return a;
 	}
-	
+
 	/**
 	 * 
 	 * @param idno
 	 * @return 身份证信息中代表性别的数值
 	 */
 	public static int getUserSex(String idno) {
-		String sex="1";
-		if(idno!=null){
-			if(idno.length()>15){
+		String sex = "1";
+		if (idno != null) {
+			if (idno.length() > 15) {
 				sex = idno.substring(16, 17);
 			}
 		}
-		
-		return Integer.parseInt(sex) % 2==0 ? 0:1;
+
+		return Integer.parseInt(sex) % 2 == 0 ? 0 : 1;
 	}
 }

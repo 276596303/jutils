@@ -1,4 +1,4 @@
-package com.JUtils.clone;
+package main.java.com.JUtils.clone;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -18,11 +18,12 @@ public class CloneUtils {
 
 	/**
 	 * 采用对象的序列化完成对象的深克隆
+	 * 
 	 * @autor:chenssy
 	 * @date:2014年8月9日
 	 *
 	 * @param obj
-	 * 			待克隆的对象
+	 *            待克隆的对象
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
@@ -46,30 +47,32 @@ public class CloneUtils {
 		}
 		return cloneObj;
 	}
-	
+
 	/**
 	 * 利用序列化完成集合的深克隆
+	 * 
 	 * @autor:chenssy
 	 * @date:2014年8月9日
 	 *
 	 * @param collection
-	 * 					待克隆的集合
+	 *            待克隆的集合
 	 * @return
 	 * @throws ClassNotFoundException
 	 * @throws java.io.IOException
 	 */
 	@SuppressWarnings("unchecked")
-	public static <T> Collection<T> cloneCollection(Collection<T> collection) throws ClassNotFoundException, IOException{
-		ByteArrayOutputStream byteOut = new ByteArrayOutputStream();  
-	    ObjectOutputStream out = new ObjectOutputStream(byteOut);  
-	    out.writeObject(collection);
-	    out.close();
-	  
-	    ByteArrayInputStream byteIn = new ByteArrayInputStream(byteOut.toByteArray());  
-	    ObjectInputStream in = new ObjectInputStream(byteIn);  
-	    Collection<T> dest = (Collection<T>) in.readObject();  
-	    in.close();
-	    
-	    return dest;  
+	public static <T> Collection<T> cloneCollection(Collection<T> collection)
+			throws ClassNotFoundException, IOException {
+		ByteArrayOutputStream byteOut = new ByteArrayOutputStream();
+		ObjectOutputStream out = new ObjectOutputStream(byteOut);
+		out.writeObject(collection);
+		out.close();
+
+		ByteArrayInputStream byteIn = new ByteArrayInputStream(byteOut.toByteArray());
+		ObjectInputStream in = new ObjectInputStream(byteIn);
+		Collection<T> dest = (Collection<T>) in.readObject();
+		in.close();
+
+		return dest;
 	}
 }
